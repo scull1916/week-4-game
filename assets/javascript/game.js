@@ -83,6 +83,22 @@ var crystalValue = [0,0,0,0];
 
 console.log(crystalValue);
 
+for (var i = 0; i < crystalValue.length; i++)
+{
+
+	var gemValue = function getRandomIntInclusive(min, max)
+	{
+		min=Math.ceil(1);
+		max=Math.floor(12);
+		return Math.floor(Math.random() * (max - min +1)) + min;
+	};
+
+	console.log(gemValue());
+	
+}
+
+console.log(crystalValue);
+
 // Load images onto the page, assign random values to each image
 
 for (var i = 0; i < crystalValue.length; i++)
@@ -90,7 +106,7 @@ for (var i = 0; i < crystalValue.length; i++)
 	
 	var imageCrystal = $("<img>");
 
-	imageCrystal.addclass("crystal-image");
+	// imageCrystal.addclass("crystal-image");
 	
 	imageCrystal.attr("gem", images[i]);
 
@@ -98,16 +114,9 @@ for (var i = 0; i < crystalValue.length; i++)
 
 	$("#gems").append(imageCrystal);
 
-	var gemValue = getRandomIntInclusive(min, max)
-	{
-		min=Math.ceil(1);
-		max=Math.floor(12);
-		return Math.floor(Math.random() * (max - min +1)) + min;
-	}
-
-	$("gemValue").push(crystalValue);
-
 }
+
+
 
 $(".crystal-image").on("click", function()
 {
@@ -115,7 +124,7 @@ $(".crystal-image").on("click", function()
 
 	clickCrystal = parseInt(clickCrystal);
 
-	counter += clickCrystal;
+	counter += 10;
 	$("#clickScore").text(counter);
 	alert("New score: " + counter);
 
