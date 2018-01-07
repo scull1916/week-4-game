@@ -1,5 +1,4 @@
-body {
-	/*background-image: url("https://pixabay.com/get/eb36b70820fc063ed1534705fb0938c9bd22ffd41cb0144095f1c371a4/angel-aura-2367887_1920.jpg");*/
-	background-image: url("https://pixabay.com/get/eb31b30f2af0053ed1534705fb0938c9bd22ffd41cb0144095f1c07eaf/gem-2420244_1920.jpg");
-	/*background-image: url("https://pixabay.com/get/e83cb60d2bf0053ed1584d05fb0938c9bd22ffd41cb0144095f0c270a0/scales-1972344_1280.jpg");*/
+body 
+{
+	background-image: url("../images/crystals.jpg");	
 }
