@@ -72,12 +72,12 @@ $("#target").text(targetNumber);
 
 var counter = 0;
 var images = [
-	'assets/images/amethyst.png', 
-	'assets/images/emerald.png', 
-	'assets/images/ruby.jpg', 
-	'assets/images/sapphire.png'
+	'../assets/images/amethyst.png', 
+	'../assets/images/emerald.png', 
+	'../assets/images/ruby.jpg', 
+	'../assets/images/sapphire.png'
 	];
-// console.log(images);
+console.log(images);
 
 var crystalValue = [0,0,0,0];
 
@@ -91,10 +91,13 @@ for (var i = 0; i < crystalValue.length; i++)
 		min=Math.ceil(1);
 		max=Math.floor(12);
 		return Math.floor(Math.random() * (max - min +1)) + min;
+		
+	crystalValue.push(this);
 	};
 
 	console.log(gemValue());
-	
+
+
 }
 
 console.log(crystalValue);
@@ -108,7 +111,7 @@ for (var i = 0; i < crystalValue.length; i++)
 
 	// imageCrystal.addclass("crystal-image");
 	
-	imageCrystal.attr("gem", images[i]);
+	imageCrystal.attr(images[i]);
 
 	imageCrystal.attr("data-crystalvalue",crystalValue[i]);
 
