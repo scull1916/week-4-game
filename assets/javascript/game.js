@@ -4,7 +4,8 @@
 $(document).ready(function() {
 
 // Declare global variables here
-
+var wins = 0;
+var loses = 0;
 
 // Write functions here
 
@@ -16,8 +17,8 @@ var targetNumber = function getRandomIntInclusive(min, max)
 	return Math.floor(Math.random() * (max - min +1)) + min;
 }
 
-console.log(targetNumber);
-// var targetNumber = 50;
+
+
 $("#target").text(targetNumber);
 
 
@@ -32,30 +33,25 @@ var images = [
 	'../week-4-game/assets/images/ruby.jpg', 
 	'../week-4-game/assets/images/sapphire.png'
 	];
-console.log(images);
 
-var crystalValue = [1,1,1,1];
 
-console.log(crystalValue);
+var crystalValue = [0,0,0,0];
+
+
+
+//generate random numbers to assign to each crystal
 
 for (var i = 0; i < crystalValue.length; i++)
 {
 
-	var gemValue = function getRandomIntInclusive(min, max)
-	{
-		min=Math.ceil(1);
-		max=Math.floor(12);
-		return Math.floor(Math.random() * (max - min +1)) + min;
+	crystalValue[i] = Math.floor(Math.random() * 12) + 1;
 
-	};
-
-	console.log(gemValue());
-
+	console.log(crystalValue[i]);
 	
 
 }
 
-console.log(crystalValue);
+
 
 // Load images onto the page, assign random values to each image
 
@@ -64,7 +60,7 @@ for (var i = 0; i < crystalValue.length; i++)
 	
 	var imageCrystal = $("<img>");
 
-	imageCrystal.addclass("crystal-image");
+	imageCrystal.addClass("crystal-image");
 	
 	imageCrystal.attr("src", images[i]);
 
@@ -78,48 +74,38 @@ for (var i = 0; i < crystalValue.length; i++)
 
 $(".crystal-image").on("click", function()
 {
-	var clickCrystal = ($(this).attr("data-crystalvalue"));
+	var gemValue = ($(this).attr("data-crystalvalue"));
 
-	clickCrystal = parseInt(clickCrystal);
+	gemValue = parseInt(gemValue);
 
-	counter += 10;
+	counter += gemValue;
+
 	$("#clickScore").text(counter);
+	
 	alert("New score: " + counter);
+	
+	if (counter === targetNumber)
+	{
+		alert("You win!");
+		wins++;
+	}
+
+	else if (counter >= targetNumber)
+	{
+		alert("You lose!");
+		loses++;
+	}
+
+
+	$("#wins").text(wins);
+	$("#loses").text(loses);
 
 
 
 });
 
 
-// console.log(counter);
 
-// $("#clickScore").text(counter);
-
-// });
-
-
-
-// $("#clickScore").text(counter);
-// 	// counter += 10;
-// 	alert("New score: " + counter);
-
-// if (counter === targetNumber) 
-// {
-
-// 	alert("You win!");
-// }
-
-// else if (counter > targetNumber)
-// {
-
-// 	alert("You went over, you lose!")
-// }
-
-// });
-
-
-
-// Program flow and logic here, loops included
 
 
 });
