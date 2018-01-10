@@ -48,8 +48,19 @@ var crystalValue = [0,0,0,0];
 		console.log(crystalValue[i]);
 	}
 
+	//*Pseudocode for generating unique values:
+	// 1) Generate a random number between 1 and 12;
+	// 2) Assign the value to a variable, e.g. temp, to hold the value for comparison;
+	// 3) Cycle through the crystalValue array to compare the number to the temp variable;
+	// 4) If the value does not match any of the elements in the array then assign to 
+	//    cyrstalValue @ the current loop iteration.
+	//*end
 
-
+	//*Pseudocode reset function
+	// 1) Run a function which generates a new random target number (attempted unsuccessfully, not coded here)
+	// 2) Run a function which generates a new set of random crystal values (ibid)
+	// 3) reinitialize the counter
+	//*end
 
 // Dynamically load images onto the page, assign the random values generated to each image, 
 // then append the image to the page.
@@ -86,15 +97,22 @@ $(".crystal-image").on("click", function()
 
 	console.log(targetNumber);
 	// alert("New score: " + counter);
+
+	$("#clickScore").text(counter);
 	
 	if (counter === targetNumber)
 	{
 		wins++;
 		alert("You win!");
-	} else if (counter > targetNumber)
+		//*Pseudocode: run reset function
+	} 
+
+	else if (counter > targetNumber)
 	{
 		loses++;
 		alert("You lose!");
+		//*Pseudocode: run reset function
+
 	}
 	else
 	{
@@ -102,11 +120,9 @@ $(".crystal-image").on("click", function()
 		
 	}
 
-	$("#clickScore").text(counter);
 
 	$("#wins").text(wins);
 	$("#loses").text(loses);
-
 
 
 
